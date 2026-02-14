@@ -1,0 +1,57 @@
+// ================================
+// TIPOGRAFÍAS
+// ================================
+$font-primary: "Source Serif 4", serif;
+$font-secondary: "Roboto", sans-serif;
+
+// ================================
+// COLORES — Marca
+// ================================
+$color-primary: #0b419b;
+$color-primary-light: #dce8fc;
+$color-primary-bg: #f2f6fd;
+
+// ================================
+// COLORES — Neutros
+// ================================
+$white: #fefefe;
+$grey-light: #e3e3e3;
+$grey-mid: #ccc;
+$grey: #999;
+$grey-dark: #555;
+$grey-hover: #767676;
+$border-color: #b6b7b8;
+$border-light: #f1f1f1;
+
+// ================================
+// COLORES — Secciones
+// ================================
+$color-gastro: #8b0101;
+$color-motor: #5b9805;
+$color-salud: #de9013;
+$color-tecno: #07919d;
+$color-viajes: #4179d6;
+$color-green: #008e7b;
+
+// ================================
+// BREAKPOINTS (Mobile First)
+// ================================
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
+$bp-wide: 1280px;
+
+// ================================
+// CONTENIDO - Anchos máximos
+// ================================
+$container-width: 65rem;
+$container-wide: 101rem;
+
+// ================================
+// ESPACIADO
+// ================================
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;

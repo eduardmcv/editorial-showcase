@@ -1,0 +1,11 @@
+@use "shared" as *;
+
+.container {
+  max-width: $container-wide;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+.container--narrow {
+  max-width: $container-width;
+}

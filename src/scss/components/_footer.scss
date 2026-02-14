@@ -1,0 +1,108 @@
+@use "../shared" as *;
+
+.footer {
+  font-size: 1.4rem;
+
+  &__container {
+    max-width: $container-wide;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+  }
+
+  // === TOP ===
+  &__top {
+    background-color: $color-primary;
+    padding: $spacing-lg 0;
+    color: $white;
+  }
+
+  &__top .footer__container {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__brand {
+    font-family: $font-primary;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: $white;
+  }
+
+  &__text {
+    color: rgba($white, 0.7);
+    margin-right: $spacing-xs;
+  }
+
+  &__editor {
+    color: $white;
+  }
+
+  // === MIDDLE ===
+  &__middle {
+    background-color: $grey-light;
+    padding: $spacing-md 0;
+  }
+
+  &__middle .footer__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $spacing-sm $spacing-md;
+  }
+
+  &__link {
+    color: $grey-dark;
+    font-size: 1.2rem;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: $spacing-md;
+  }
+
+  &__social-link {
+    color: $grey-dark;
+    font-size: 1.2rem;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  // === BOTTOM ===
+  &__bottom {
+    background-color: $grey-dark;
+    padding: $spacing-md 0;
+    text-align: center;
+    color: $grey-mid;
+    font-size: 1.1rem;
+  }
+
+  &__copyright-editor {
+    display: block;
+    margin-bottom: $spacing-xs;
+    font-weight: 500;
+  }
+}

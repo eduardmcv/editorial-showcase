@@ -1,0 +1,45 @@
+@use "../shared" as *;
+
+.header {
+  background-color: $color-primary;
+  padding: $spacing-sm 0;
+
+  &__container {
+    max-width: $container-wide;
+    margin: 0 auto;
+    padding: 0 $spacing-sm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__logo {
+    color: $white;
+    font-family: $font-primary;
+    font-size: 1.5rem;
+    font-weight: 700;
+    svg {
+      height: 2rem;
+      vertical-align: middle;
+    }
+  }
+
+  &__menu-btn,
+  &__login-btn {
+    color: $white;
+    font-size: 0.875rem;
+    width: 3.3rem;
+    height: 3.3rem;
+
+    svg {
+      vertical-align: middle;
+    }
+  }
+
+  &__login-btn {
+    background-color: $white;
+    border-radius: 50px;
+    color: $color-primary;
+  }
+}

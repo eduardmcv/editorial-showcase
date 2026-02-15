@@ -51,13 +51,14 @@
 .especial {
   &__hero {
     background-image: linear-gradient(#000000 0%, #210000 50%);
-    min-height: 95vh;
+    min-height: 95dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     position: relative;
     overflow: hidden;
+    margin-bottom: $spacing-lg;
 
     @include desktop {
       flex-direction: row;
@@ -90,7 +91,8 @@
     font-weight: 800;
     line-height: 100%;
     color: $white;
-    max-width: 40ch;
+    display: flex;
+    flex-direction: column;
 
     @include desktop {
       font-size: 8.8rem;
@@ -143,22 +145,70 @@
 
   &__block {
     &--text {
-      max-width: 65rem;
+      max-width: $container-width;
+      width: 100%;
       margin: 0 auto;
-      padding: $spacing-xl $spacing-md;
+      padding: $spacing-md $spacing-md 0;
       font-family: $font-primary;
-    }
-
-    @include desktop {
-      &--text {
-        padding: $spacing-xxl $spacing-md;
-      }
     }
 
     &--image {
       img {
+        max-width: $container-wide;
         width: 100%;
+        margin: 0 auto;
+        padding: $spacing-md $spacing-md 0;
       }
+    }
+  }
+
+  &__cita {
+    max-width: $container-width;
+    padding: $spacing-md $spacing-md;
+    font-family: $font-primary;
+    font-style: italic;
+    font-size: 2.4rem;
+    line-height: 1.4;
+    color: $grey-dark;
+    border-left: 4px solid $color-primary;
+    background-color: $color-primary-bg;
+    border-radius: 0 16px 16px 0;
+
+    cite {
+      display: block;
+      font-style: normal;
+      font-family: $font-secondary;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: $color-primary;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  &__enlace-original {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    font-family: $font-secondary;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: $color-primary;
+    margin-bottom: $spacing-lg;
+    transition: gap 0.2s ease;
+    background-color: $color-primary-light;
+    padding: $spacing-sm $spacing-lg;
+    border-radius: 50px;
+
+    &:hover {
+      gap: $spacing-sm;
+    }
+
+    svg {
+      transition: transform 0.2s ease;
+    }
+
+    &:hover svg {
+      transform: translate(2px, -2px);
     }
   }
 }
@@ -168,11 +218,16 @@
   display: flex;
   position: relative;
   flex-direction: column;
+  transform: translateY(52%);
+
+  @include mobile-xs {
+    transform: translateY(40%);
+  }
   @include tablet {
-    top: 3rem;
+    transform: translateY(58%);
   }
   @include desktop {
-    top: 3rem;
+    transform: translateY(60%);
   }
 }
 
@@ -180,7 +235,7 @@
   position: relative;
   top: 0;
   display: flex;
-  gap: 3rem;
+  gap: 4rem;
 }
 
 .asientos-delanteros {
@@ -188,16 +243,18 @@
   z-index: 1;
   --bote: -0.1rem;
   animation: bote 8s ease-in-out infinite 0.05s;
+}
 
-  .bloque__sanchez {
-    position: relative;
-    z-index: 2;
-    scale: 0.9;
-  }
+.bloque__sanchez {
+  position: relative;
+  z-index: 2;
+  scale: 0.8;
+  margin-top: 0.8rem;
+}
 
-  .bloque__abalos {
-    padding-top: 1.5rem;
-  }
+.bloque__abalos {
+  margin-top: 1.7rem;
+  scale: 0.9;
 }
 
 .asientos-traseros {
@@ -208,19 +265,21 @@
   scale: 0.7;
   --bote: -0.08rem;
   animation: bote 8s ease-in-out infinite 0.1s;
+}
 
-  .bloque__koldo {
-    position: relative;
-    margin-left: -40%;
-    z-index: 1;
-    scale: 1.1;
-  }
+.bloque__koldo {
+  position: relative;
+  margin-left: -35%;
+  z-index: 1;
+  scale: 1;
+  filter: brightness(0.9);
+}
 
-  .bloque__cerdan {
-    position: relative;
-    z-index: 2;
-    scale: 0.9;
-  }
+.bloque__cerdan {
+  position: relative;
+  z-index: 2;
+  scale: 0.8;
+  filter: brightness(0.9);
 }
 
 .peugeot {

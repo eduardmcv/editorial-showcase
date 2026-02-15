@@ -1,56 +1,32 @@
 @use "../shared" as *;
 
+// =============================================
+// ANIMACIÓN — Botes irregulares del vehículo
+// =============================================
 @keyframes bote {
-  0% {
-    transform: translateY(0);
-  }
-  2% {
-    transform: translateY(var(--bote));
-  }
-  4% {
-    transform: translateY(0);
-  }
-  6% {
-    transform: translateY(var(--bote));
-  }
-  8% {
-    transform: translateY(0);
-  }
-  15% {
-    transform: translateY(0);
-  }
-  17% {
-    transform: translateY(var(--bote));
-  }
-  19% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(0);
-  }
-  42% {
-    transform: translateY(var(--bote));
-  }
-  44% {
-    transform: translateY(0);
-  }
-  68% {
-    transform: translateY(0);
-  }
-  70% {
-    transform: translateY(var(--bote));
-  }
-  72% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0%  { transform: translateY(0); }
+  2%  { transform: translateY(var(--bote)); }
+  4%  { transform: translateY(0); }
+  6%  { transform: translateY(var(--bote)); }
+  8%  { transform: translateY(0); }
+  15% { transform: translateY(0); }
+  17% { transform: translateY(var(--bote)); }
+  19% { transform: translateY(0); }
+  40% { transform: translateY(0); }
+  42% { transform: translateY(var(--bote)); }
+  44% { transform: translateY(0); }
+  68% { transform: translateY(0); }
+  70% { transform: translateY(var(--bote)); }
+  72% { transform: translateY(0); }
+  100% { transform: translateY(0); }
 }
 
+// =============================================
+// ESPECIAL — Estructura general
+// =============================================
 .especial {
   &__hero {
-    background-image: linear-gradient(#000000 0%, #210000 50%);
+    background-image: linear-gradient($black 0%, $color-hero-dark 50%);
     min-height: 95svh;
     display: flex;
     flex-direction: column;
@@ -96,8 +72,6 @@
 
     @include desktop {
       font-size: 8.8rem;
-      display: flex;
-      flex-direction: column;
     }
 
     span {
@@ -121,7 +95,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateY(-50%) translateX(-50%);
+    transform: translate(-50%, -50%);
 
     img {
       scale: 2;
@@ -136,13 +110,16 @@
 
   &__hero-bottom {
     margin-top: auto;
-    max-width: 590px;
+    max-width: $hero-bottom-max;
 
     @include desktop {
       width: 50%;
     }
   }
 
+  // =============================================
+  // ESPECIAL — Bloques de contenido
+  // =============================================
   &__block {
     &--text {
       max-width: $container-width;
@@ -161,9 +138,12 @@
     }
   }
 
+  // =============================================
+  // ESPECIAL — Citas editoriales
+  // =============================================
   &__cita {
     max-width: $container-width;
-    padding: $spacing-md $spacing-md;
+    padding: $spacing-md;
     font-family: $font-primary;
     font-style: italic;
     font-size: 2.4rem;
@@ -172,7 +152,7 @@
     border-left: 4px solid $color-primary;
     background-color: $color-primary-bg;
     border-radius: 0 16px 16px 0;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-xxl;
 
     cite {
       display: block;
@@ -185,6 +165,9 @@
     }
   }
 
+  // =============================================
+  // ESPECIAL — Enlace a noticia original
+  // =============================================
   &__enlace-original {
     display: inline-flex;
     align-items: center;
@@ -194,25 +177,28 @@
     font-weight: 500;
     color: $color-primary;
     margin-bottom: $spacing-lg;
-    transition: gap 0.2s ease;
     background-color: $color-primary-light;
     padding: $spacing-sm $spacing-lg;
     border-radius: 50px;
-
-    &:hover {
-      gap: $spacing-sm;
-    }
+    transition: gap 0.2s ease;
 
     svg {
       transition: transform 0.2s ease;
     }
 
-    &:hover svg {
-      transform: translate(2px, -2px);
+    &:hover {
+      gap: $spacing-sm;
+
+      svg {
+        transform: translate(2px, -2px);
+      }
     }
   }
 }
 
+// =============================================
+// COMPOSICIÓN — Vehículo con pasajeros (Hero)
+// =============================================
 .politicos {
   display: flex;
   position: relative;
@@ -222,9 +208,11 @@
   @include mobile-xs {
     transform: translateY(40%);
   }
+
   @include tablet {
     transform: translateY(58%);
   }
+
   @include desktop {
     transform: translateY(60%);
   }
@@ -232,7 +220,6 @@
 
 .asientos-coche {
   position: relative;
-  top: 0;
   display: flex;
   gap: 4rem;
 }
@@ -270,7 +257,6 @@
   position: relative;
   margin-left: -35%;
   z-index: 1;
-  scale: 1;
   filter: brightness(0.9);
 }
 
@@ -289,7 +275,10 @@
   --bote: -0.12rem;
   animation: bote 8s ease-in-out infinite;
 }
-/* IMAGEN MONCLOA */
+
+// =============================================
+// EFECTO SCROLL — Reveal de imagen (Moncloa)
+// =============================================
 .imagen-reveal {
   position: relative;
   overflow: hidden;
@@ -297,16 +286,14 @@
   &__base {
     width: 100%;
     display: block;
-    transition:
-      filter 0.1s ease,
-      opacity 0.1s ease;
+    transition: filter 0.1s ease, opacity 0.1s ease;
   }
 
   &__overlay {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -315,8 +302,9 @@
   }
 }
 
-/* IMAGEN ABALOS */
-
+// =============================================
+// EFECTO SCROLL — Capas superpuestas (Ábalos)
+// =============================================
 .imagen-capas {
   position: relative;
   overflow: hidden;

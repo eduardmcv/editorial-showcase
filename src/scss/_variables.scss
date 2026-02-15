@@ -17,7 +17,7 @@ $color-primary-bg: #f2f6fd;
 $white: #fefefe;
 $grey-light: #e3e3e3;
 $grey-mid: #ccc;
-$grey: #999;
+$grey: #767676; // mínimo WCAG AA sobre fondo blanco (4.5:1)
 $grey-dark: #555;
 $grey-hover: #767676;
 $border-color: #b6b7b8;
@@ -38,6 +38,7 @@ $color-green: #008e7b;
 // COLORES — Especiales
 // ================================
 $color-accent-red: #bb0000;
+$color-hero-dark: #210000;
 
 // ================================
 // BREAKPOINTS (Mobile First)
@@ -52,6 +53,7 @@ $bp-wide: 1280px;
 // ================================
 $container-width: 65rem;
 $container-wide: 101rem;
+$hero-bottom-max: 59rem;
 
 // ================================
 // ESPACIADO

@@ -1,0 +1,222 @@
+@use "../shared" as *;
+
+// =============================================
+// PERFILES — Contenedor principal
+// =============================================
+.perfiles {
+  position: relative;
+  background-color: #1a1a1a;
+  color: $white;
+  padding: $spacing-xxl 0;
+}
+
+.perfiles__canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.perfiles__contenedor {
+  position: relative;
+  z-index: 1;
+  max-width: $container-wide;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+
+  @include desktop {
+    display: flex;
+    gap: $spacing-xxl;
+    align-items: flex-start;
+  }
+}
+
+.perfiles__lateral {
+  @include desktop {
+    width: 40%;
+    position: sticky;
+    top: 10vh;
+  }
+}
+
+.perfiles__textos {
+  position: relative;
+  min-height: 20rem;
+
+  @include desktop {
+    width: 60%;
+  }
+}
+
+// =============================================
+// PERFILES — Polaroid
+// =============================================
+.perfiles__foto {
+  position: relative;
+  height: 35rem;
+  margin-bottom: $spacing-xxl;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.perfiles__polaroid {
+  position: absolute;
+  background: $white;
+  padding: 1rem 1rem 3.5rem;
+  box-shadow: 0 8px 30px rgba($black, 0.5);
+  max-width: 24rem;
+  width: 70%;
+  opacity: 0;
+  transform: translateY(40px) rotate(0deg) scale(0.3);
+  transition:
+    opacity 0.3s ease,
+    transform 0.5s cubic-bezier(0.2, 0.8, 0.3, 1.2);
+  pointer-events: none;
+
+  img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+  }
+
+  // Cada polaroid cae con rotación diferente
+  &[data-perfil="abalos"].activa {
+    transform: translateY(0) rotate(-3deg) scale(1);
+  }
+
+  &[data-perfil="koldo"].activa {
+    transform: translateY(0) rotate(4deg) scale(1);
+  }
+
+  &[data-perfil="cerdan"].activa {
+    transform: translateY(0) rotate(-2deg) scale(1);
+  }
+
+  &.activa {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.perfiles__polaroid-nombre {
+  display: block;
+  text-align: center;
+  font-family: $font-secondary;
+  font-size: 1.3rem;
+  color: $grey-dark;
+  margin-top: $spacing-sm;
+  font-weight: 500;
+}
+
+// =============================================
+// PERFILES — Navegación entre perfiles
+// =============================================
+.perfiles__navegacion {
+  position: sticky;
+  bottom: 10rem;
+  max-width: $container-wide;
+  margin: -3rem auto $spacing-xxl;
+  z-index: 100;
+  display: flex;
+
+  &-contenedor {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-sm $spacing-sm;
+    border-radius: 1.6rem;
+    border-top: 1px solid rgba($white, 0.2);
+    border-bottom: 1px solid rgba($black, 0.2);
+    background: rgba(#111111, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(10px);
+    transform: translateY(100%);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+
+    @include desktop {
+      padding: $spacing-md $spacing-xxl;
+    }
+  }
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+.perfiles__btn {
+  font-family: $font-secondary;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: rgba($white, 0.5);
+  padding: $spacing-sm $spacing-lg;
+  border-radius: 50px;
+  border: 1px solid rgba($white, 0.08);
+  background: rgba($white, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    color: $white;
+    border-color: rgba($white, 0.5);
+  }
+
+  &.activa {
+    color: $black;
+    background-color: $white;
+  }
+}
+
+// =============================================
+// PERFILES — Bloques de texto
+// =============================================
+.perfiles__textos {
+  position: relative;
+  overflow: hidden;
+  transition: height 0.4s ease;
+
+  @include desktop {
+    width: 60%;
+  }
+}
+
+.perfiles__bloque {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+
+  &.activa {
+    opacity: 1;
+    position: relative;
+    pointer-events: auto;
+  }
+
+  p {
+    color: rgba($white, 0.85);
+    font-family: $font-primary;
+  }
+}
+
+.perfiles__subtitulo {
+  font-family: $font-secondary;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: $color-accent-red;
+  margin-bottom: $spacing-md;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}

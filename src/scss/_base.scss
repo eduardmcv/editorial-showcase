@@ -42,7 +42,6 @@ a {
   color: inherit;
 }
 
-// Accesibilidad: estilos de foco para navegación con teclado
 :focus-visible {
   outline: 2px solid $color-primary;
   outline-offset: 2px;

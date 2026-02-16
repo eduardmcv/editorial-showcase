@@ -4,21 +4,51 @@
 // ANIMACIÓN — Botes irregulares del vehículo
 // =============================================
 @keyframes bote {
-  0%  { transform: translateY(0); }
-  2%  { transform: translateY(var(--bote)); }
-  4%  { transform: translateY(0); }
-  6%  { transform: translateY(var(--bote)); }
-  8%  { transform: translateY(0); }
-  15% { transform: translateY(0); }
-  17% { transform: translateY(var(--bote)); }
-  19% { transform: translateY(0); }
-  40% { transform: translateY(0); }
-  42% { transform: translateY(var(--bote)); }
-  44% { transform: translateY(0); }
-  68% { transform: translateY(0); }
-  70% { transform: translateY(var(--bote)); }
-  72% { transform: translateY(0); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  2% {
+    transform: translateY(var(--bote));
+  }
+  4% {
+    transform: translateY(0);
+  }
+  6% {
+    transform: translateY(var(--bote));
+  }
+  8% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(0);
+  }
+  17% {
+    transform: translateY(var(--bote));
+  }
+  19% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  42% {
+    transform: translateY(var(--bote));
+  }
+  44% {
+    transform: translateY(0);
+  }
+  68% {
+    transform: translateY(0);
+  }
+  70% {
+    transform: translateY(var(--bote));
+  }
+  72% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 // =============================================
@@ -34,7 +64,6 @@
     text-align: center;
     position: relative;
     overflow: hidden;
-    margin-bottom: $spacing-lg;
 
     @include desktop {
       flex-direction: row;
@@ -85,9 +114,11 @@
     max-width: 40ch;
     font-size: 1.5rem;
     margin-top: $spacing-md;
+    line-height: 2.2rem;
 
     @include desktop {
       font-size: 2.2rem;
+      line-height: unset;
     }
   }
 
@@ -176,11 +207,12 @@
     font-size: 1.4rem;
     font-weight: 500;
     color: $color-primary;
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-md;
     background-color: $color-primary-light;
-    padding: $spacing-sm $spacing-lg;
+    padding: $spacing-sm $spacing-md;
     border-radius: 50px;
     transition: gap 0.2s ease;
+    margin-right: $spacing-xs;
 
     svg {
       transition: transform 0.2s ease;
@@ -286,7 +318,9 @@
   &__base {
     width: 100%;
     display: block;
-    transition: filter 0.1s ease, opacity 0.1s ease;
+    transition:
+      filter 0.1s ease,
+      opacity 0.1s ease;
   }
 
   &__overlay {

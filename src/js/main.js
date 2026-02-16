@@ -1,6 +1,7 @@
 import "../scss/main.scss";
 import { createHeader } from "./components/header.js";
 import { createFooter } from "./components/footer.js";
+import { initPerfiles } from "./components/perfiles.js";
 
 // =============================================
 // Componentes — Header y Footer
@@ -21,8 +22,8 @@ const capasPatron = capas?.querySelector(".imagen-capas__patron");
 
 // Configuración del patrón UCO
 const patronConfig = {
-  direction: 1,    // -1 = sube, 1 = baja
-  distance: 400,   // px de recorrido total
+  direction: 1, // -1 = sube, 1 = baja
+  distance: 400, // px de recorrido total
   startBottom: 10, // posición inicial en % desde abajo
 };
 
@@ -38,7 +39,7 @@ function getScrollProgress(element, speed = 1) {
   const windowHeight = window.innerHeight;
   const raw = Math.min(
     Math.max((windowHeight - rect.top) / (windowHeight + rect.height), 0),
-    1
+    1,
   );
   return Math.min(raw * speed, 1);
 }
@@ -82,3 +83,5 @@ window.addEventListener("scroll", () => {
     ticking = true;
   }
 });
+
+initPerfiles();
